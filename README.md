@@ -29,3 +29,7 @@ Funcionamento:
 - Se o password for digitado errado o led vermelho liga e SÓ DESLIGA quando o password for digitado corretamente.
 
 O arquivo **12Keys.c** é usado como complemento para o funcionamento de algumas funções.
+
+### Frequencimetro.c
+
+Código de um frequencímetro utilizando o timer1 no PIC18F4550.
