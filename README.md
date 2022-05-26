@@ -33,3 +33,7 @@ O arquivo **12Keys.c** é usado como complemento para o funcionamento de algumas
 ### Frequencimetro.c
 
 Código de um frequencímetro utilizando o timer1 no PIC18F4550.
+
+### Temperatura.c
+
+Código de um sistema de controle de temperatura feito para o simulador PICGenios utilizando as portas analógicas do PIC18F4550.
