@@ -5,7 +5,8 @@
 #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
 
 float ad;
-unsigned int32 ad0;
+unsigned int32 ad0, n = 0;
+char codigo;
 
 int digito[10] =
                {0b00111111,    //Dígito 0
@@ -19,10 +20,12 @@ int digito[10] =
                 0b01111111,    //Dígito 8
                 0b01101111     //Dígito 9
                };
+               
+void trata_serial(codigo) {
+}
 
 #int_timer0              
 void trata_t0() {
-    static unsigned int32 n;
     SET_TIMER0(100+get_timer0()); 
     n++;
     
@@ -34,6 +37,7 @@ void trata_t0() {
     if (ad0 >= 10 && ad0 < 30) {
       output_d(digito[0]);
       output_a(0b00100000);
+      n = 0;
     } else if (ad0 >= 30 && ad0 < 60) {
         output_d(digito[0]);
         output_a(0b00100000);
@@ -41,6 +45,7 @@ void trata_t0() {
         output_d(digito[1]);
         output_a(0b00010000);
         delay_ms(20);
+        n = 0;
     } else if (ad0 >= 60 && ad0 < 90) {
         output_d(digito[0]);
         output_a(0b00100000);
@@ -51,6 +56,7 @@ void trata_t0() {
         output_d(digito[2]);
         output_a(0b00001000);
         delay_ms(20);
+        n = 0;
     } else if (ad0 >= 90) {
         output_d(digito[0]);
         output_a(0b00100000);
@@ -64,6 +70,7 @@ void trata_t0() {
         output_d(digito[3]);
         output_a(0b00000100);
         delay_ms(20);
+        n = 0;
     }
     
 }
